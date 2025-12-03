@@ -18,7 +18,8 @@ class AdministerLoginWidget(QWidget):
         cursor = Connector.get_cursor()
         sql = 'SELECT * FROM administer WHERE a_name = %s AND password = %s;'
         cursor.execute(sql, (self.__ui.m_accountLineEdit.text(), self.__ui.m_passwordLineEdit.text()))
-        if cursor.fetchone is None:
+        if cursor.fetchone() is None:
             QMessageBox.critical(self, '登陆失败', '管理员帐号或密码错误，请检查')
             return
+
         SI.g_mainWindow.setCurrentIndex(5)

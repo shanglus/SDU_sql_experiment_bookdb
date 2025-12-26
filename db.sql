@@ -8,7 +8,7 @@ CREATE TABLE users (
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     name VARCHAR(50),
-    role VARCHAR(20) DEFAULT '员工' -- 例如：管理员、调度员、司机
+    role VARCHAR(20) DEFAULT '员工' -- 例如：管理员、司机
 );
 
 -- 2. 车辆表
@@ -66,7 +66,7 @@ CREATE TABLE accidents (
 
 -- 插入用户数据
 INSERT INTO users (username, password, name, role) VALUES
-('root', '123', 'root', '老板'),
+('root', '123', 'root', '管理员'),
 ('user1', '123', '刘师傅', '司机');
 
 -- 插入车辆数据
@@ -88,3 +88,6 @@ INSERT INTO transport_tasks (client_name, need_vehicle_type, need_count, plan_mi
 -- 插入事故记录数据
 INSERT INTO accidents (vehicle_id, driver_id, accident_time, location, reason, handle_method, cost, other_plate) VALUES
 (1, 2, '2025-12-01 14:30:00', '京沪高速入口', '追尾', '保险理赔', 5000.00, '京D12345');
+
+
+
